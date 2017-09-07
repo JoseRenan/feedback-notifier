@@ -1,17 +1,20 @@
 from . models import feedback_schema, Feedback
-from flask import Flask, request
-from fnotifier import app
+from flask import request, Blueprint
+from fnotifier.util import response
 from fnotifier.core import db
 
 
-@app.route('/feedback/', methods=['POST'])
+feedback = Blueprint('feedback', __name__, url_prefix='/feedback')
+
+
+@feedback.route('/', methods=['POST'])
 def create_feedback():
-    feedback = feedback_schema.make_object(request.get_json())
-    db.session.add(feedback)
+    received_feedback = feedback_schema.make_object(request.get_json())
+    db.session.add(received_feedback)
     db.session.commit()
-    return feedback_schema.jsonify(feedback), 200, {'Content-Type': 'application/json'}
+    return response.response_json_ok(feedback_schema.jsonify(received_feedback))
 
 
-@app.route('/feedback/', methods=['GET'])
+@feedback.route('/', methods=['GET'])
 def get_feedbacks():
-    return feedback_schema.jsonify(Feedback.query.all(), many=True), 201, {'Content-Type': 'application/json'}
+    return response.response_json_ok(feedback_schema.jsonify(Feedback.query.all(), many=True))

@@ -1,5 +1,4 @@
-from fnotifier.core import db
-from fnotifier import ma
+from fnotifier.core import db, ma
 from marshmallow import post_load
 
 
