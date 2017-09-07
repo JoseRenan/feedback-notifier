@@ -1,4 +1,5 @@
-from . factory import create_app
+from flask_marshmallow import Marshmallow
+from flask_sqlalchemy import SQLAlchemy
 
-
-app = create_app(__name__)
+db = SQLAlchemy()
+ma = Marshmallow()

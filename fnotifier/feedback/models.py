@@ -1,4 +1,4 @@
-from fnotifier.core import db, ma
+from fnotifier import db, ma
 from marshmallow import post_load
 
 

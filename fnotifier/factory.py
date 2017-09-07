@@ -1,5 +1,5 @@
 from flask import Flask
-from fnotifier.core import db, ma
+from fnotifier import db, ma
 
 
 def create_app(package_name, settings_override=None):

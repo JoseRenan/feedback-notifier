@@ -1,7 +1,7 @@
 from . models import feedback_schema, Feedback
 from flask import request, Blueprint
 from fnotifier.util import response
-from fnotifier.core import db
+from fnotifier import db
 
 
 feedback = Blueprint('feedback', __name__, url_prefix='/feedback')
