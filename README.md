@@ -1,34 +1,34 @@
 # Feedback Notifier
 
-A simple API that sends feedbacks from a contact page on a website or any rest client to the configured slack.
+A simple API that sends feedbacks from a contact page on a website or any REST client to a configured Slack account.
 
 ## Installation
 
-To configure the feedback notifier, you have to create a database on mysql and configure the connection on `config.py` file.
+To configure the feedback notifier, you have to first create a database on MySQL and set the connection on the `config.py` file.
 
-After that, you have to [get an incoming webhook url](https://my.slack.com/services/new/incoming-webhook/) for the channel you want receive notification on your slack and put it on `fnotifier/util/slackutils.py` file on the `webhook_url` variable.
+After that, you have to [get an incoming webhook URL](https://my.slack.com/services/new/incoming-webhook/) for the Slack channel where you want to receive notifications and reference it on the `webhook_url` variable found on the `fnotifier/util/slackutils.py` file.
 
-Doing it, you have just to run the commands above:
+Once you have gone through the previous steps, you have only got to run the following commands:
 ```shell
 $ pip install -r requirements.txt
 $ python run.py
 ```
 
-OBS: You should use python 3.
+Note: You should use Python 3.
 
-## Using
+## Use
 
-To send a message to the slack channel you have just to send a POST request to `/feedback` with the content:
+To send a message to the Slack channel you have just to send a POST request to `/feedback` with this JSON content:
 
 ```json
 {
 	"description": "<The message or feedback>",
 	"author_email": "<The email of the feedback author>",
 	"author_name": "<The name of the feedback author>",
-	"label": "<The label indicating what the feedback is, it can be one of: BUG|COMPLIMENT|SUGGESTION|COMPLAINT>"
+	"label": "<The label indicating what the feedback is about. It can be one of these: BUG|COMPLIMENT|SUGGESTION|COMPLAINT>"
 }
 ```
 
-### Thanks =D
+### Thanks! =D
 
-It's a sample app made with learning purpose, if you want to suggest features or contribute, create a new issue or make a PR.
+This a sample app made for learning purposes. If you want to suggest features or contribute, you are encouraged to create a new issue or make a PR.
