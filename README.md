@@ -4,9 +4,9 @@ A simple API that sends feedbacks from a contact page on a website or any REST c
 
 ## Installation
 
-To configure the feedback notifier, you have to first create a database on MySQL and set the connection on the `config.py` file.
+To configure the feedback notifier, you have to first create a database on MySQL and set the connection configurations on the `config.py` file.
 
-After that, you have to [get an incoming webhook URL](https://my.slack.com/services/new/incoming-webhook/) for the Slack channel where you want to receive notifications and reference it on the `webhook_url` variable found on the `fnotifier/util/slackutils.py` file.
+After that, you have to [get an incoming webhook URL](https://my.slack.com/services/new/incoming-webhook/) for the Slack channel in which you want to receive notifications and reference it on the `webhook_url` variable found on the `fnotifier/util/slackutils.py` file.
 
 Once you have gone through the previous steps, you have only got to run the following commands:
 ```shell
